@@ -765,7 +765,6 @@ main();
                ...header,
 					...dynHeaders,
 					"x-forwarded-proto": "https",
-               ...duong,
 ...rateHeaders[Math.floor(Math.random()*rateHeaders.length)],
                   ...rateHeaders5[Math.floor(Math.random()*rateHeaders5.length)],
                   ...rateHeaders4[Math.floor(Math.random()*rateHeaders4.length)],
