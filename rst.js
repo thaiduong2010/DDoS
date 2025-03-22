@@ -427,7 +427,7 @@ var methods = method[Math.floor(Math.random() * method.length)]
         headers[":scheme"] = "https";
         headers[":authority"] = parsedTarget.host;
         headers[":path"] = parsedTarget.path;
-        headers["user-agent"] = `Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Mobile Safari/537.36 OPR/134.0.0.0`;
+        headers["user-agent"] = `Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36 OPR/134.0.0.0`;
         headers["accept"] = "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8";
         headers["accept-language"] = "vi-VN,vi;q=0.7";
         headers["accept-Encoding"] = "gzip, deflate, br, zstd";
@@ -436,7 +436,7 @@ var methods = method[Math.floor(Math.random() * method.length)]
         headers["referer"] = "https://" + parsedTarget.host;
         headers["origin"] = "https://" + parsedTarget.host;
         headers["sec-ch-ua-mobile"] = "?0";
-        headers["sec-ch-ua-platform"] = "Android";
+        headers["sec-ch-ua-platform"] = "Windows";
         headers["sec-fetch-dest"] = "document";
         headers["sec-fetch-mode"] = "navigate";
         headers["sec-fetch-site"] = "none";
