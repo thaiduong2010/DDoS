@@ -422,7 +422,7 @@ const method = [
 var methods = method[Math.floor(Math.random() * method.length)]
 
  const path = parsedTarget.path;
- const Socker = new NetSocket();
+ 
         const languages = [
      'en-US,en;q=0.9',
      'fr-FR,fr;q=0.9',
