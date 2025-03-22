@@ -423,20 +423,36 @@ var methods = method[Math.floor(Math.random() * method.length)]
 
  const path = parsedTarget.path;
  const Socker = new NetSocket();
+        const languages = [
+     'en-US,en;q=0.9',
+     'fr-FR,fr;q=0.9',
+     'de-DE,de;q=0.9',
+     'es-ES,es;q=0.9',
+     'zh-CN,zh;q=0.9',
+     'ru-RU,ru;q=0.9',
+     'hi-IN,hi;q=0.9',
+     'tr-TR,tr;q=0.9',
+     'pt-BR,pt;q=0.9',
+     'it-IT,it;q=0.9',
+     'nl-NL,nl;q=0.9',
+     'ko-KR,ko;q=0.9'
+];
+ const Socker = new NetSocket();
         headers[":method"] = methods;
         headers[":scheme"] = "https";
         headers[":authority"] = parsedTarget.host;
         headers[":path"] = parsedTarget.path;
-        headers["user-agent"] = `Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36 OPR/134.0.0.0`;
-        headers["accept"] = "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8";
-        headers["accept-language"] = "vi-VN,vi;q=0.7";
-        headers["accept-Encoding"] = "gzip, deflate, br, zstd";
+        headers["user-agent"] = `Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Mobile Safari/537.36 OPR/134.0.0.0`;
+        headers["accept"] = Math.random() > 0.5 ? `text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7` : "*/*";
+        headers["accept-language"] = languages[~~Math.floor(Math.random * languages.length)];
+        headers["accept-encoding"] = "gzip, deflate, br, zstd";
+        headers["cache-control"] = Math.random() > 0.5 ? 'max-age=0' : 'no-cache';
         headers["sec-ch-ua"] = `"Chromium";v="134", "Opera GX";v="134", "Not)A;Brand";v="99"`;
         headers["priority"] = "u=0, i";
         headers["referer"] = "https://" + parsedTarget.host;
         headers["origin"] = "https://" + parsedTarget.host;
-        headers["sec-ch-ua-mobile"] = "?0";
-        headers["sec-ch-ua-platform"] = "Windows";
+        headers["sec-ch-mobile"] = "?0";
+        headers["sec-ch-ua-platform"] = "Android";
         headers["sec-fetch-dest"] = "document";
         headers["sec-fetch-mode"] = "navigate";
         headers["sec-fetch-site"] = "none";
